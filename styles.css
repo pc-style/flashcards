@@ -255,6 +255,7 @@ button:hover {
 .red-background {
     background-color: transparent;
     color: red;
+    box-shadow: none;
 }
 
 /* Mobile-specific styles */
@@ -275,6 +276,9 @@ button:hover {
         cursor: pointer;
         transition: all 0.3s ease;
         
+    }
+    #statsBtn:hover {
+        box-shadow: none;
     }
     .red-background {
         background-color: transparent;
