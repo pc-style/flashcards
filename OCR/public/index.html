@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+</head>
+<body>
+    <input type="file" id="image-upload" accept="image/*">
+    <button id="upload-button">Upload</button>
+    <div id="result"></div>
+
+    <script>
+        const imageUpload = document.getElementById('image-upload');
+        const uploadButton = document.getElementById('upload-button');
+        const resultDiv = document.getElementById('result');
+
+        uploadButton.addEventListener('click', () => {
+            const file = imageUpload.files[0];
+            const formData = new FormData();
+            formData.append('image', file);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                resultDiv.innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

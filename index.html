@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Polish Word Learning Game</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-comfy-pink">
+    <div class="stats">
+        <p><span class="material-icons">emoji_events</span> Success Rate: <span id="successRate">0%</span></p>
+        <p><span class="material-icons">stars</span> High Score: <span id="highScore">0%</span></p>
+        <p><span class="material-icons">view_carousel</span> Cards Left: <span id="cardsLeft">0</span></p>
+    </div>
+    <button id="settingsBtn" class="material-icons">settings</button>
+    <div id="settingsPopup" class="settings-popup">
+        <h3>Settings</h3>
+        <div class="setting">
+            <label for="soundToggle">Sound Effects:</label>
+            <input type="checkbox" id="soundToggle" checked>
+        </div>
+        <div class="setting">
+            <input type="file" id="imageInput" accept="image/*">
+            <pre id="result"></pre>
+        </div>
+        <div class="setting">
+            <label for="volumeSlider">Volume:</label>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+        </div>
+        <div class="setting">
+            <label for="themeSelect">Theme:</label>
+            <select id="themeSelect">
+                <option value="comfy-pink">Comfy Pink</option>
+                <option value="comfy-green">Comfy Green</option>
+                <option value="dark-orange">Dark Orange</option>
+                <option value="classic-dark">Classic Dark</option>
+                <option value="classic-white">Classic White</option>
+                <option value="animated">Animated Background</option>
+            </select>
+        </div>
+        <button id="closeSettings">Close</button>
+    </div>
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+    <div class="streak">Streak: <span id="streakCount">0</span></div>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <span class="lang-tag">PL</span>
+                    <h2 id="polishWord"></h2>
+                </div>
+                <div class="card-back">
+                    <span class="lang-tag">EN</span>
+                    <h2 id="englishWord"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button id="failBtn" class="material-icons">close</button>
+        <button id="successBtn" class="material-icons">check</button>
+        <button id="newSessionBtn" class="material-icons">refresh</button>
+    </div>
+    <audio id="flipSound">
+        <source src="audio/flip.ogg" type="audio/ogg">
+    </audio>
+    <audio id="successSound">
+        <source src="audio/success.wav" type="audio/wav">
+    </audio>
+    <audio id="failSound">
+        <source src="audio/fail.wav" type="audio/wav">
+    </audio>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
