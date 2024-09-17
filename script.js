@@ -93,6 +93,8 @@ const closeSettings = document.getElementById('closeSettings');
 const soundToggle = document.getElementById('soundToggle');
 const themeSelect = document.getElementById('themeSelect');
 
+const statsBtn = document.getElementById('statsBtn');
+const statsPopup = document.getElementById('stats');
 
 function updateStats() {
     const successRate = totalCount === 0 ? 0 : Math.round((successCount / totalCount) * 100);
@@ -174,6 +176,29 @@ settingsBtn.addEventListener('click', () => {
 
 closeSettings.addEventListener('click', () => {
     settingsPopup.style.display = 'none';
+});
+
+// Function to show stats popup
+const showStatsPopup = () => {
+    statsPopup.style.display = 'block';
+    statsBtn.textContent = 'close';
+    statsBtn.classList.add('red-background');
+};
+
+// Function to hide stats popup
+const hideStatsPopup = () => {
+    statsPopup.style.display = 'none';
+    statsBtn.textContent = 'bar_chart';
+    statsBtn.classList.remove('red-background');
+};
+
+// Event listener for stats button
+statsBtn.addEventListener('click', () => {
+    if (statsPopup.style.display === 'block') {
+        hideStatsPopup();
+    } else {
+        showStatsPopup();
+    }
 });
 
 soundToggle.addEventListener('change', (e) => {

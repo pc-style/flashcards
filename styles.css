@@ -8,6 +8,10 @@ body {
     margin: 0;
     transition: background-color 0.3s ease;
     overflow: hidden;
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
 }
 
 .animated-bg {
@@ -244,3 +248,68 @@ button:hover {
 .theme-dark-orange { background-color: #ff6b6b; color: white; }
 .theme-classic-dark { background-color: #2f3542; color: white; }
 .theme-classic-white { background-color: #f1f2f6; color: #333; }
+
+#statsBtn {
+    display: none;
+}
+.red-background {
+    background-color: transparent;
+    color: red;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 600px) {
+    .stats {
+        display: none;
+    }
+
+    #statsBtn {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 24px;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+    }
+    .red-background {
+        background-color: transparent;
+        color: red;
+        box-shadow: none;
+    }
+    
+}
+
+
+/* Mobile-specific styles */
+/* @media (max-width: 600px) {
+    .stats, .settings-popup, .progress-bar, .streak, .card-container, .buttons {
+        width: 90%;
+    }
+
+    .card-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .card {
+        height: auto;
+    }
+
+    .card-front, .card-back {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 24px;
+        padding: 10px;
+    }
+
+    .theme-selector {
+        bottom: 10px;
+    }
+} */
